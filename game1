@@ -1,0 +1,26 @@
+import random
+koloda = [6, 7, 8, 9, 10, 2, 3, 4] * 4 + [1, 1, 11, 11]
+random.shuffle (koloda)
+print ("BlackJack\n")
+count = 0
+
+while True:
+
+    choice = input ("Играем? y/n\n")
+    if choice == 'y':
+        current = koloda.pop()
+        print ("Получаете карту достоинством %d" %current)
+        count += current
+
+        if count > 21:
+            print ("Ваш счет больше 21 (%d). Вы проиграли" %count)
+            break
+        elif count == 21:
+            print ("Ваш счет 21. Поздравляем, Вы выиграли!")
+            break
+        else:
+            print ("Ваш счет %d" %count)
+
+    elif choice == 'n':
+        print ("Ваш счет %d. Вы закончили игру" %count)
+        break
